@@ -185,13 +185,13 @@ Application
 
 ```
 
-docs/ERD/job-portal-erd.png
+docs/ERD/https://github.com/Yoe2004-25/laravel-job-board/blob/main/docu/ERD.png
 
 ```
 
 Example
 
-<img src="docs/ERD/job-portal-erd.png">
+<img src="https://github.com/Yoe2004-25/laravel-job-board/blob/main/docu/ERD.png">
 
 ---
 
