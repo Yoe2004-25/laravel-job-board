@@ -1,59 +1,421 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 💼 Job Portal API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A professional Job Portal Backend built with Laravel.
 
-## About Laravel
+The project allows companies to publish jobs, users to apply, and administrators to manage the entire hiring process.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# 🚀 Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Authentication
 
-## Learning Laravel
+- User Registration
+- Login
+- Logout
+- Laravel Sanctum Authentication
+- Protected API Routes
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Companies
 
-## Laravel Sponsors
+- Create Company
+- Update Company
+- Delete Company
+- Show Company
+- Company Owner Authorization
+- Soft Delete
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## Jobs
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- Create Job
+- Update Job
+- Delete Job
+- Search Jobs
+- Filter Jobs
+- Salary Support
+- Location Support
+- Soft Delete
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Applications
 
-## Code of Conduct
+- Apply for Job
+- Upload CV
+- Track Status
+- Application Processing
+- Soft Delete
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## Notifications
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Email notification is sent when:
 
-## License
+- Application Status Updated
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## Events & Listeners
+
+Project uses Laravel Events for:
+
+- User Registration
+- Job Registration
+- Company Registration
+
+Listeners are responsible for:
+
+- Logging
+- Flash Messages
+- Queue Processing
+
+---
+
+## Authorization
+
+Laravel Policies are used to secure:
+
+- Applications
+- Companies
+- Jobs
+
+Only owners are allowed to update or delete their resources.
+
+---
+
+## API Resources
+
+The project uses Laravel API Resources for:
+
+- User Resource
+- Company Resource
+- Job Resource
+- Application Resource
+
+---
+
+## Validation
+
+Laravel Form Request Validation is used for all incoming requests.
+
+---
+
+## Testing
+
+The project includes:
+
+- Unit Tests
+- Feature Tests
+
+Coverage includes:
+
+- User Relationships
+- Company CRUD
+- Job Relationships
+- Applications
+- Authorization
+
+---
+
+## Documentation
+
+Swagger Documentation included.
+
+Postman Collection included.
+
+---
+
+# 🛠 Built With
+
+- Laravel 12
+- PHP 8.3+
+- MySQL
+- Laravel Sanctum
+- Swagger
+- PHPUnit
+- Postman
+
+---
+
+# Database Design
+
+## Tables
+
+- users
+- companies
+- job_listings
+- applications
+- personal_access_tokens
+- sessions
+
+---
+
+# Relationships
+
+User
+
+- Has One Company
+- Has Many Jobs
+- Has Many Applications
+
+Company
+
+- Belongs To User
+- Has Many Jobs
+
+Job
+
+- Belongs To User
+- Belongs To Company
+- Has Many Applications
+
+Application
+
+- Belongs To User
+- Belongs To Job
+
+---
+
+# ER Diagram
+
+```
+
+docs/ERD/job-portal-erd.png
+
+```
+
+Example
+
+<img src="docs/ERD/job-portal-erd.png">
+
+---
+
+# API Documentation
+
+Swagger
+
+```
+
+http://localhost/documentation
+
+```
+
+---
+
+# API Endpoints
+
+## Authentication
+
+| Method | Endpoint |
+|---------|----------|
+| POST | /api/register |
+| POST | /api/login |
+| POST | /api/logout |
+| GET | /api/user |
+
+---
+
+## Companies
+
+| Method | Endpoint |
+|---------|----------|
+| GET | /api/companies |
+| POST | /api/companies |
+| GET | /api/companies/{id} |
+| PUT | /api/companies/{id} |
+| DELETE | /api/companies/{id} |
+
+---
+
+## Jobs
+
+| Method | Endpoint |
+|---------|----------|
+| GET | /api/jobs |
+| POST | /api/jobs |
+| GET | /api/jobs/{id} |
+| PUT | /api/jobs/{id} |
+| DELETE | /api/jobs/{id} |
+
+---
+
+## Applications
+
+| Method | Endpoint |
+|---------|----------|
+| GET | /api/applications |
+| POST | /api/applications |
+| GET | /api/applications/{id} |
+| PUT | /api/applications/{id} |
+| DELETE | /api/applications/{id} |
+
+---
+
+# Installation
+
+Clone repository
+
+```bash
+git clone https://github.com/YourUsername/job-portal-api.git
+```
+
+Install packages
+
+```bash
+composer install
+```
+
+Copy environment
+
+```bash
+cp .env.example .env
+```
+
+Generate key
+
+```bash
+php artisan key:generate
+```
+
+Configure database
+
+```
+DB_DATABASE=job
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Run migrations
+
+```bash
+php artisan migrate
+```
+
+Run seeders
+
+```bash
+php artisan db:seed
+```
+
+Start server
+
+```bash
+php artisan serve
+```
+
+---
+
+# Testing
+
+Run Feature Tests
+
+```bash
+php artisan test
+```
+
+or
+
+```bash
+php artisan test --testsuite=Feature
+```
+
+Run Unit Tests
+
+```bash
+php artisan test --testsuite=Unit
+```
+
+---
+
+# Project Structure
+
+```
+
+app/
+├── Events
+├── Listeners
+├── Notifications
+├── Policies
+├── Http
+│ ├── Controllers
+│ ├── Requests
+│ ├── Resources
+├── Models
+
+database/
+├── factories
+├── migrations
+├── seeders
+
+tests/
+├── Feature
+├── Unit
+
+```
+
+---
+
+# Included Files
+
+- ✔ ER Diagram
+
+- ✔ SQL Script
+
+- ✔ Swagger Documentation
+
+- ✔ Postman Collection
+
+- ✔ Factories
+
+- ✔ Seeders
+
+- ✔ Unit Tests
+
+- ✔ Feature Tests
+
+---
+
+# Future Improvements
+
+- Email Verification
+
+- Password Reset
+
+- Company Dashboard
+
+- Admin Dashboard
+
+- Role & Permission
+
+- Search with Laravel Scout
+
+- Queue Workers
+
+- Docker Support
+
+- CI/CD Pipeline
+
+---
+
+# Author
+
+**Youssif Ahmed**
+
+Backend Laravel Developer
+
+GitHub
+
+https://github.com/Yoe2004-25
+
+LinkedIn
+
+(Add your LinkedIn here)
+
+Email
+
+(Add your Email here)
